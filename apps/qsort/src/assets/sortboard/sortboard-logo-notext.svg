@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="608.094" height="424.387" viewBox="0 0 608.094 424.387">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fd698c;
+      }
+
+      .cls-2 {
+        fill: #f59866;
+      }
+
+      .cls-3 {
+        fill: #f54ab5;
+      }
+
+      .cls-4 {
+        fill: #f5b54b;
+      }
+
+      .cls-5 {
+        fill: #ef2bfb;
+      }
+
+      .cls-6 {
+        fill: #f5da30;
+      }
+    </style>
+  </defs>
+  <g id="Group_18" data-name="Group 18" transform="translate(-79.953 -70.807)">
+    <rect id="Rectangle_59" data-name="Rectangle 59" class="cls-1" width="94" height="70" rx="6" transform="matrix(0.999, 0.035, -0.035, 0.999, 286.97, 72.381)"/>
+    <rect id="Rectangle_59-2" data-name="Rectangle 59" class="cls-2" width="94" height="70" rx="6" transform="matrix(0.998, -0.07, 0.07, 0.998, 385.393, 77.364)"/>
+    <rect id="Rectangle_59-3" data-name="Rectangle 59" class="cls-3" width="94" height="70" rx="6" transform="matrix(0.998, -0.07, 0.07, 0.998, 181.393, 155.364)"/>
+    <rect id="Rectangle_59-4" data-name="Rectangle 59" class="cls-1" width="94" height="70" rx="6" transform="translate(287.616 149.588) rotate(3)"/>
+    <rect id="Rectangle_59-5" data-name="Rectangle 59" class="cls-2" width="94" height="70" rx="6" transform="translate(385.953 154.508) rotate(-3)"/>
+    <rect id="Rectangle_59-6" data-name="Rectangle 59" class="cls-4" width="94" height="70" rx="6" transform="translate(487.953 154.508) rotate(-3)"/>
+    <rect id="Rectangle_59-7" data-name="Rectangle 59" class="cls-5" width="94" height="70" rx="6" transform="translate(83.616 227.588) rotate(3)"/>
+    <rect id="Rectangle_59-8" data-name="Rectangle 59" class="cls-3" width="94" height="70" rx="6" transform="matrix(0.999, -0.035, 0.035, 0.999, 182.527, 231.662)"/>
+    <rect id="Rectangle_59-9" data-name="Rectangle 59" class="cls-1" width="94" height="70" rx="6" transform="matrix(0.996, 0.087, -0.087, 0.996, 288.95, 226.037)"/>
+    <rect id="Rectangle_59-10" data-name="Rectangle 59" class="cls-2" width="94" height="70" rx="6" transform="matrix(0.996, -0.087, 0.087, 0.996, 384.849, 234.23)"/>
+    <rect id="Rectangle_59-11" data-name="Rectangle 59" class="cls-4" width="94" height="70" rx="6" transform="matrix(0.996, 0.087, -0.087, 0.996, 492.95, 226.037)"/>
+    <rect id="Rectangle_59-12" data-name="Rectangle 59" class="cls-6" width="94" height="70" rx="6" transform="matrix(0.998, -0.07, 0.07, 0.998, 589.393, 233.364)"/>
+    <rect id="Rectangle_59-13" data-name="Rectangle 59" class="cls-3" width="94" height="70" rx="6" transform="matrix(0.996, -0.087, 0.087, 0.996, 180.849, 312.229)"/>
+    <rect id="Rectangle_59-14" data-name="Rectangle 59" class="cls-1" width="94" height="70" rx="6" transform="translate(283.953 310.508) rotate(-3)"/>
+    <rect id="Rectangle_59-15" data-name="Rectangle 59" class="cls-2" width="94" height="70" rx="6" transform="matrix(0.998, -0.07, 0.07, 0.998, 385.393, 311.364)"/>
+    <rect id="Rectangle_59-16" data-name="Rectangle 59" class="cls-4" width="94" height="70" rx="6" transform="matrix(0.998, -0.07, 0.07, 0.998, 559.393, 387.364)"/>
+    <rect id="Rectangle_59-17" data-name="Rectangle 59" class="cls-1" width="94" height="70" rx="6" transform="matrix(0.999, 0.035, -0.035, 0.999, 286.97, 384.381)"/>
+    <rect id="Rectangle_59-18" data-name="Rectangle 59" class="cls-2" width="94" height="70" rx="6" transform="matrix(0.998, 0.07, -0.07, 0.998, 520.276, 418.807)"/>
+  </g>
+</svg>

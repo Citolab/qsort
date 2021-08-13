@@ -1,0 +1,135 @@
+// Add additional styles here. For example, overwrite certain styles or add new components.
+// Tip: You can use bootstrap's powerful mixins here!
+/* russo-one-regular - latin */
+@font-face {
+  font-family: "Russo One";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/assets/fonts/rosso-one-latin/fonts/russo-one-v8-latin-regular.eot"); /* IE9 Compat Modes */
+  src: local("Russo One"), local("RussoOne-Regular"),
+    url("/assets/fonts/rosso-one-latin/russo-one-v8-latin-regular.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("/assets/fonts/rosso-one-latin/russo-one-v8-latin-regular.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("/assets/fonts/rosso-one-latin/russo-one-v8-latin-regular.woff") format("woff"),
+    /* Modern Browsers */ url("/assets/fonts/rosso-one-latin/russo-one-v8-latin-regular.ttf") format("truetype"),
+    /* Safari, Android, iOS */ url("/assets/fonts/rosso-one-latin/russo-one-v8-latin-regular.svg#RussoOne")
+      format("svg"); /* Legacy iOS */
+}
+/* caveat-regular - latin */
+@font-face {
+  font-family: "Caveat";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Caveat Regular"), local("Caveat-Regular"),
+    url("./../assets/fonts/caveat-v7-latin/caveat-v7-latin-regular.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */ url("./../assets/fonts/caveat-v7-latin/caveat-v7-latin-regular.woff")
+      format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+.text-small {
+  font-size: 0.8rem;
+}
+
+.font-caveat {
+  font-family: Caveat;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  // overflow:hidden;
+}
+
+.c-pointer {
+  cursor: pointer;
+}
+
+.c-move {
+  cursor: move;
+}
+
+.c-not-allowed {
+  cursor: not-allowed;
+}
+
+.flex-even {
+  flex: 1;
+}
+
+.tile {
+  width: 100%;
+  height: auto;
+  max-width: 1000px;
+  margin: 0 !important;
+  font-size: 0.8rem;
+  cursor: move;
+  &-large {
+    @extend .tile;
+    font-size: 1.4rem;
+  }
+}
+
+.hide {
+  opacity: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.border-dotted {
+  border: dotted darken($light, 20%) 2px;
+}
+// .cdk-drop-list-receiving {
+//     display: none;
+// }
+.agree {
+  background-color: rgba($success, 0.2);
+}
+.neutral {
+  background-color: rgba($info, 0.2);
+}
+.disagree {
+  background-color: rgba($danger, 0.2);
+}
+
+.statement-box {
+  transform-origin: center;
+  display: inline-block;
+  // width: 260px;
+  // height: 70%;
+  background: #ffffff;
+  // padding-bottom: 40px;
+  // border-radius: 8px;
+  overflow: hidden;
+  position: absolute;
+  will-change: transform;
+  transition: all 0.3s ease-in-out;
+  cursor: grab;
+  img {
+    pointer-events: none;
+  }
+}
+
+.card-img-top {
+  object-fit: contain;
+  height: 50%;
+  max-height: 50%;
+}
+
+.statement-box {
+  width: 24vw !important;
+  height: 21vh !important;
+  max-width: 24vw !important;
+  max-height: 21vh !important;
+  line-height: 1.2;
+}
+
+.statement-text {
+  display: none;
+}
+/* Animate items as they're being sorted. */
+.cdk-drag-preview {
+  & .statement-text {
+    display: inline !important;
+  }
+}

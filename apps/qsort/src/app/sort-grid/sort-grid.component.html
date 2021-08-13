@@ -1,0 +1,135 @@
+<ng-container *ngIf="statements">
+  <qsort-card-stack [cards]="statements" (currentCardChanged)="currentCardChanged($event)"
+    (choiceMade)="choiceMade($event)"></qsort-card-stack>
+</ng-container>
+
+<div class="w-100 d-flex justify-content-center" *ngIf="state === 'sort' || state === 'done'">
+  <div *ngFor="let rowTile of gridTiles; let i = index" [style.width.vw]="14"
+    class="px-1 d-flex flex-column justify-content-center" [class.neutral-left]="currentPiramid.neutral === i"
+    [class.neutral-right]="i === gridTiles.length -1  &&  currentPiramid.neutral -1 === i">
+    <!-- currentPiramid.neutral results in border left except when neutral is on the last tile, then it will result in a border right of the last title -->
+    <div *ngFor="let draggableStatement of rowTile; let x = index" id="{{draggableStatement.id}}" cdkDropList
+      cdkDropListSortingDisabled class="my-1 statement-list statement-box-small hide-second-child"
+      [cdkDropListData]="draggableStatement.statements" [cdkDropListConnectedTo]="allDropLists"
+      (cdkDropListDropped)="dropSort($event)" [cdkDropListDisabled]="processDropping"
+      [cdkDropListEnterPredicate]="dropListEmptyPredicate(categories)" #t
+      [ngStyle]="{'border-color': piramidcolors[i] }">
+      <qsort-statement-card *ngFor="let statement of draggableStatement.statements" cdkDrag [statement]="statement"
+        [titleOnly]="true" class="statement-box statement-box-small">
+        <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+
+      </qsort-statement-card>
+    </div>
+  </div>
+</div>
+
+<div class="statement-container" [style.max-width.vw]="getCardContainerWidth(categories[0])"
+  [style.min-width.vw]="getCardContainerWidth(categories[0])" style="left:2rem;">
+  <div class="position-absolute" style="left: 2vw;top:-5vw">
+    <h2 [@slideInDownOnEnter] *ngIf="modalRef2Clicked" class="font-caveat text-center p-0 m-0">{{ left }}</h2>
+    <svg [@slideInDownOnEnter] *ngIf="modalRef2Clicked" xmlns="http://www.w3.org/2000/svg" width="188.558"
+      height="43.143" viewBox="0 0 188.558 43.143">
+      <g id="Group_73" data-name="Group 73" transform="translate(-108.702 -354.289)">
+        <path id="Path_20" data-name="Path 20"
+          d="M0,0A300.79,300.79,0,0,0,85.217,12.927a889.624,889.624,0,0,0,90.312-5.1" transform="translate(121.5 375.5)"
+          fill="none" stroke="#ef2bfb" stroke-width="4" />
+        <path id="Path_21" data-name="Path 21"
+          d="M0,25.423A39.733,39.733,0,0,0,4.555,13.45,46.578,46.578,0,0,0,4.555,0S8.191,7.136,13.6,10.829,26.187,14.77,26.187,14.77"
+          transform="translate(112 377.219) rotate(-50)" fill="none" stroke="#ef2bfb" stroke-linecap="round"
+          stroke-linejoin="round" stroke-width="4" />
+      </g>
+    </svg>
+  </div>
+
+  <h2 class="font-caveat text-center mb-4" *ngIf="state === 'stack'">
+    {{ currentStatement?.left?.startsWith('en ') ? categories[0] + ' ' : '' }}{{ currentStatement.left }}
+  </h2>
+  <div [class.mt-5]="state === 'sort'" id="{{categories[0]}}" class="statement-list" cdkDropList cdkDropListSortingDisabled
+    [cdkDropListDisabled]="!(state === 'sort' || state === 'done') || processDropping"
+    [cdkDropListData]="statementsLists.get(categories[0])" [cdkDropListConnectedTo]="allDropLists">
+
+    <!-- (cdkDropListDropped)="dropStack($event, categories)"> -->
+    <!-- (cdkDropListDropped)="dropStack($event)" -->
+    <qsort-statement-card [@fadeInDownOnEnter] *ngFor="let statement of statementsLists.get(categories[0]); let i = index"
+      [style.z-index]="selectedStatement?.id === statement.id ? 1: 0" (click)="statementSelected(statement)"
+      [style.left.vw]="getCardLeftPostion(i, categories[0])" cdkDrag [style.transform]="getRandomRotation1(i)"
+      [statement]="statement" class="statement-box position-absolute">
+      <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+
+    </qsort-statement-card>
+  </div>
+</div>
+
+<button style="
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  " class="btn btn-primary" [routerLink]="['/done']" *ngIf="state==='done'">Als je klaar bent, klik dan hier op te
+  stoppen.</button>
+
+<div class="statement-container" (handleEvent)="selectedStatement = null" [exclusion]="['qsort-statement-card']"
+  [style.max-width.vw]="getCardContainerWidth(categories[1])"
+  [style.min-width.vw]="getCardContainerWidth(categories[1])" style="right: 2rem;">
+  <div class="position-absolute" style="right: 2vw;top:-5vw">
+    <h2 [@slideInDownOnEnter] *ngIf="modalRef2Clicked" class="font-caveat text-center p-0 m-0">{{ right }}</h2>
+    <svg [@slideInDownOnEnter] *ngIf="modalRef2Clicked" xmlns="http://www.w3.org/2000/svg" width="188.558"
+      height="43.143" viewBox="0 0 188.558 43.143">
+      <g id="Group_74" data-name="Group 74" transform="translate(0.231 2.87)">
+        <path id="Path_20" data-name="Path 20"
+          d="M175.529,0A300.79,300.79,0,0,1,90.312,12.926,889.626,889.626,0,0,1,0,7.831" transform="translate(0 18.341)"
+          fill="none" stroke="#f5b54b" stroke-width="4" />
+        <path id="Path_21" data-name="Path 21"
+          d="M0,0A39.732,39.732,0,0,1,4.555,11.973a46.578,46.578,0,0,1,0,13.45S8.191,18.286,13.6,14.594s12.588-3.941,12.588-3.941"
+          transform="translate(165.554 36.402) rotate(-130)" fill="none" stroke="#f5b54b" stroke-linecap="round"
+          stroke-linejoin="round" stroke-width="4" />
+      </g>
+    </svg>
+  </div>
+  <h2 class="font-caveat text-center mb-4" *ngIf="state === 'stack'">
+    {{ currentStatement?.right?.startsWith('en ') ? categories[1] + ' ' : '' }}{{ currentStatement.right }}
+  </h2>
+  <div [class.mt-5]="state === 'sort'" id="{{categories[1]}}" class="statement-list" cdkDropList cdkDropListSortingDisabled
+    [cdkDropListDisabled]="!(state === 'sort' || state === 'done') || processDropping"
+    [cdkDropListData]="statementsLists.get(categories[1])" [cdkDropListConnectedTo]="allDropLists">
+    <!-- (cdkDropListDropped)="dropStack($event)" -->
+    <qsort-statement-card [@fadeInDownOnEnter] [style.z-index]="selectedStatement?.id === statement.id ? 1: 0"
+      (click)="statementSelected(statement)" *ngFor="let statement of statementsLists.get(categories[1]); let i = index"
+      [style.left.vw]="getCardLeftPostion(i, categories[1])" cdkDrag [style.transform]="getRandomRotation2(i)"
+      [statement]="statement" class="statement-box position-absolute" style="min-width: 24vw;">
+      <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+
+    </qsort-statement-card>
+  </div>
+</div>
+
+<ng-template #template1>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">{{ sortQuestion }}</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef1.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>{{ categoryExplanation }}
+    </p>
+    <button type="button" class="btn btn-primary" aria-label="Close" (click)="modalRef1.hide()">
+      Verdeel
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #template2>
+  <div class="modal-body">
+    <p>Je gaat nu je keuzes verfijnen door ze in deze vakken te leggen.</p>
+    <ul>
+      <li>{{ leftExplanation }}</li>
+      <li>{{ rightExplanation }}</li>
+    </ul>
+    <p>Het is niet van belang of je een stelling bovenin of onderin legt.</p>
+    <button type="button" class="btn btn-primary" aria-label="Close" (click)="modalRef2.hide()">
+      Verfijn je keuzes
+    </button>
+  </div>
+</ng-template>

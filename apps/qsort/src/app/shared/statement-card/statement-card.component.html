@@ -1,0 +1,11 @@
+<ng-content></ng-content>
+
+<img
+  class="card-img-top"
+  style="object-fit: cover;"
+  [src]="statement.image"
+/>
+
+<div class="card-body  p-2">
+  <p class="text-small text-left"><strong>{{ statement.title }}</strong><span [class.statement-text]="titleOnly">: {{ statement.text }}</span></p>
+</div>

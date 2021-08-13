@@ -1,0 +1,70 @@
+:host {
+  display: block;
+}
+.stack--cards {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.statement-box {
+  &.moving {
+  transition: none;
+  cursor: grabbing;
+  }
+}
+
+
+.stack--status {
+  // temp fix if i do not know what to do with this
+  opacity: 0!important;
+
+  position: absolute;
+  top: 50%;
+  margin-top: -30px;
+  z-index: 2;
+  width: 100%;
+  text-align: center;
+  pointer-events: none;
+  div {
+    transition: all 0.3s ease-in-out;
+  }
+  svg {
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    width: 100px;
+    margin-left: -50px;
+  }
+}
+
+.stack--buttons {
+  // temp fix if i do not know what to do with this
+  opacity: 0!important;
+  
+  position: absolute;
+  flex: 0 0 100px;
+  text-align: center;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  button {
+    border-radius: 50%;
+    line-height: 50px;
+    width: 50px;
+    height: 50px;
+    border: 0;
+    background: #FFFFFF;
+    display: inline-block;
+    padding-top: 10px;
+    margin: 0 12px;
+  }
+  button:focus {
+    outline: 0;
+  }
+}

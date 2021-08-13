@@ -1,0 +1,214 @@
+{
+  "version": 1,
+  "projects": {
+    "qsort": {
+      "projectType": "application",
+      "root": "apps/qsort",
+      "sourceRoot": "apps/qsort/src",
+      "prefix": "qsort",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/qsort",
+            "index": "apps/qsort/src/index.html",
+            "main": "apps/qsort/src/main.ts",
+            "polyfills": "apps/qsort/src/polyfills.ts",
+            "tsConfig": "apps/qsort/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": ["apps/qsort/src/favicon.ico", "apps/qsort/src/assets"],
+            "styles": ["apps/qsort/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/qsort/src/environments/environment.ts",
+                  "with": "apps/qsort/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "qsort:build:production"
+            },
+            "development": {
+              "browserTarget": "qsort:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "qsort:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/qsort/src/**/*.ts",
+              "apps/qsort/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/qsort"],
+          "options": {
+            "jestConfig": "apps/qsort/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "functions": {
+      "root": "apps/functions",
+      "sourceRoot": "apps/functions/src",
+      "projectType": "application",
+      "prefix": "functions",
+      "schematics": {},
+      "architect": {
+        "build-node": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/functions",
+            "main": "apps/functions/src/main.ts",
+            "tsConfig": "apps/functions/tsconfig.app.json",
+            "assets": ["apps/functions/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/functions/src/environments/environment.ts",
+                  "with": "apps/functions/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "build": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "nx run functions:build-node --prod"
+              },
+              {
+                "command": "npm run ts-node tools/scripts/build-firebase-functions-package-json.ts"
+              }
+            ],
+            "parallel": false
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "nx run functions:build && firebase emulators:start --only functions --inspect-functions"
+          }
+        },
+        "shell": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "nx run functions:build && firebase functions:shell --inspect-functions"
+          }
+        },
+        "start": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "nx run functions:shell"
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "firebase deploy --only functions"
+          }
+        },
+        "logs": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "firebase funcions:log"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/functions/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/functions/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  },
+  "defaultProject": "qsort"
+}

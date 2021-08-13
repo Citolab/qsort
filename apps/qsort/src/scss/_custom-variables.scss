@@ -1,0 +1,111 @@
+// Overwrite Bootstrap's variables here
+// You can find them in node_modules/bootstrap/scss/_variables.scss
+// Copy the variables you need into this file, don't modify files under node_modules/
+
+// Some example variables that you can uncomment:
+
+// Enabling shadows and gradients
+//$enable-shadows: true;
+//$enable-gradients: true;
+
+// $grid-breakpoints: (
+//   xs: 0,
+//   sm: 540px,
+//   md: 720px,
+//   lg: 960px,
+//   xl: 1440px
+// ) !default;
+
+// $container-max-widths: (
+//   sm: 540px,
+//   md: 720px,
+//   lg: 960px,
+//   xl: 1440px
+// ) !default;
+
+$enable-responsive-font-sizes: true;
+
+// $enable-rounded:    false;
+// $small-font-size:             86% !default;
+
+// Changing the body background and text
+//$body-color: #151417;
+
+// Changing the border radius of buttons
+// $border-radius: 15px;
+
+// Changing the theme colors
+// $primary: rgb(41, 149, 168);
+
+// $primary:       $blue !default;
+// $secondary:     $gray-600 !default;
+// $success:       $green !default;
+// $info:          $cyan !default;
+// $warning:       $yellow !default;
+// $danger:        $red !default;
+// $light:         $gray-100 !default;
+// $dark:          $gray-800 !default;
+
+$primary: #F54AB5;
+$secondary: #00A5E9;
+$success: #6f964f;
+$info: #64a1a9;
+$warning: #d39a37;
+$danger: #ad515e;
+$light: #F7F7F7;
+$dark: #36393d;
+$enable-transitions: true;
+// $dark:          #173A4D !default;
+
+$body-bg: #d3dacf;
+
+$card-border-radius :6px;
+$card-border-color: #ffffff;
+
+// Adding (!) an additional theme color (ex. classes btn-cool, bg-cool)
+//$theme-colors: (
+//  "cool": #4d3fa3
+//);
+
+// $nav-link-padding-y:                .5rem !default;
+// $nav-link-padding-x:                1rem !default;
+// $nav-link-disabled-color:           $gray-600 !default;
+
+// $nav-tabs-border-color:             $gray-300 !default;
+// $nav-tabs-border-width:             $border-width !default;
+// $nav-tabs-border-radius:            0;
+// $nav-tabs-link-hover-border-color:  $gray-200 $gray-200 $nav-tabs-border-color !default;
+// $nav-tabs-link-active-color:        $dark;
+// $nav-tabs-link-active-bg:           white;
+// $nav-tabs-link-active-border-color: transparent;
+
+// $nav-divider-color:                 $gray-200 !default;
+// $nav-divider-margin-y:              ($spacer / 2) !default;
+
+// $nav-tabs-border-color:             $dark;
+// $nav-tabs-border-width:             2px;
+
+// $font-family-sans-serif:      Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+// $font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+// $font-family-base:            $font-family-sans-serif;
+
+// $spacer:                      2rem !default;
+// $font-size-base:              0.9rem !default;
+// $btn-border-width:            2px;
+// $border-radius:               .18rem !default;
+
+// $input-btn-padding-y:         .200rem !default;
+// $input-btn-padding-x:         .75rem !default;
+
+// $btn-transition: none;
+
+// $navbar-brand-font-size:     $font-size-base;
+
+// $text-muted:                  #aaaaaa;
+
+
+// $card-spacer-y:              .50rem !default;
+// $card-spacer-x:              .50rem !default;
+
+// $lead-font-size:            ($font-size-base * 1.0);
+// $lead-font-weight:          600 !default;

@@ -1,0 +1,11 @@
+@import './scss/custom-variables';
+@import '~bootstrap/scss/bootstrap';
+@import './scss/custom-styles';
+@import './scss/bootstrap-materialdesignicons';
+
+html, body {
+    width:100vw;
+    min-height:100vh;
+    background-color: #D3FFF0
+}
+ 

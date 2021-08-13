@@ -1,0 +1,17 @@
+<div class="d-flex justify-content-center align-items-center h-100">
+  <div class="card mt-5" style="width: 25rem;">
+    <div class="card-body">
+      <h5 class="card-title">Einde</h5>
+      <p class="card-text mb-5">
+      </p>
+      <div>
+        <div class="mb-2" *ngIf="showResult">
+          Bekijk <a [routerLink]="'/dashboard'">hier</a> om te zien wat andere antwoordden.
+        </div>
+      </div>
+      <div class="d-flex justify-content-end">
+        <button (click)="restart()" class="btn btn-primary">TERUG NAAR HET STARTSCHERM</button>
+      </div>
+    </div>
+  </div>
+</div>

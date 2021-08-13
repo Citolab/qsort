@@ -1,0 +1,23 @@
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex justify-content-between">
+    <a
+        class="navbar-brand"
+        [routerLink]="['/']"
+    >Q Sort</a>
+    <p class="h5 text-white text-center">{{ backendService.currentItem?.title}}</p>
+   
+    <div class="text-white" style="min-width: 120px;">
+        <button
+            [hidden]="!backendService.nextEnabled"
+            class="btn btn-outline-light"
+            (click)="backendService.nextEnabled ? backendService.next() : null;"
+        >{{ backendService.nextText }}
+            <span
+                class="mdi mdi-play position-relative"
+                style="top: 2px; "
+            ></span>
+        </button>
+
+    </div>
+</nav> -->
+
+<router-outlet></router-outlet>

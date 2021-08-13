@@ -1,0 +1,14 @@
+.card-body {
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+
+:host {
+  position:relative;
+}
+
+:host.card-img-top {
+  pointer-events: none;
+  border-top-left-radius: calc(3rem - 1px);
+  border-top-right-radius: calc(3rem - 1px);
+}

@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "name": "Functions in Console",
+            "request": "launch",
+            "runtimeArgs": [
+                "run-script",
+                "console:dev"
+            ],
+            "runtimeExecutable": "npm",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "pwa-node"
+        }
+    ]
+}

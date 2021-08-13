@@ -1,0 +1,12 @@
+<div class="h-100 w-100 d-flex justify-content-center align-items-center">
+    <div class="m-3" style="height: 40vh; width: 80vw;"
+        *ngIf="data$ | async as graphData;else waiting">
+        <canvas baseChart [datasets]="graphData.data" [labels]="graphData.labels" [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+           [legend]="barChartLegend" [chartType]="barChartType">
+        </canvas>
+    </div>
+</div>
+<ng-template #waiting>
+    <span class="mdi mdi-loading mdi-spin mr-2"></span>
+</ng-template>

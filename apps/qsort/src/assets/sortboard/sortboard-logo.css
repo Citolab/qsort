@@ -1,0 +1,13 @@
+#LetterA {
+    animation: show 1s ease forwards;
+    animation-delay: 1.3s;
+}
+
+@keyframes show {
+    0% {
+        transform: translate(260px, 110px);
+    }
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
